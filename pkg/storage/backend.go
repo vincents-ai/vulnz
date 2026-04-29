@@ -27,6 +27,12 @@ type Backend interface {
 
 	// Lifecycle
 	Close(ctx context.Context) error
+
+	// Legacy envelope-based methods used by internal providers and pkg/api.
+	Write(ctx context.Context, envelope *Envelope) error
+	Read(ctx context.Context, id string) (*Envelope, error)
+	List(ctx context.Context) ([]string, error)
+	Count(ctx context.Context) (int, error)
 }
 
 // Envelope wraps vulnerability data with metadata.

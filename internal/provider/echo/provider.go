@@ -25,7 +25,7 @@ type Provider struct {
 	*provider.Base
 	config       Config
 	parser       *Parser
-	workspaceMgr *workspace.Manager
+	workspaceMgr workspace.Workspace
 }
 
 // init registers the echo provider with the provider registry.
