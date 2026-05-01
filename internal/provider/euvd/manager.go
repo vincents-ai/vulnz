@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"time"
 
-	vulnzhttp "github.com/shift/vulnz/internal/http"
-	"github.com/shift/vulnz/internal/provider"
+	vulnzhttp "github.com/vincents-ai/vulnz/internal/http"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 // EUVDRecord represents a single exploited vulnerability from the EUVD API.

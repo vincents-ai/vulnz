@@ -5,7 +5,7 @@
 package storage
 
 import (
-	vulnzstorage "github.com/shift/vulnz/pkg/storage"
+	vulnzstorage "github.com/vincents-ai/vulnz/pkg/storage"
 )
 
 // Backend defines storage operations for vulnerability data.

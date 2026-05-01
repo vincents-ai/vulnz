@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/shift/vulnz/internal/grc"
+	"github.com/vincents-ai/vulnz/internal/grc"
 	"github.com/spf13/cobra"
 )
 

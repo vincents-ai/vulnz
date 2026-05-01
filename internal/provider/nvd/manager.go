@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/storage"
 )
 
 type Manager struct {

@@ -8,7 +8,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/utils/oval"
+	"github.com/vincents-ai/vulnz/internal/utils/oval"
 )
 
 var _ = Describe("OVAL Parser", func() {

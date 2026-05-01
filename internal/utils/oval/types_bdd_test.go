@@ -8,7 +8,7 @@ import (
 	. "github.com/onsi/gomega"
 
 	govalParser "github.com/quay/goval-parser/oval"
-	"github.com/shift/vulnz/internal/utils/oval"
+	"github.com/vincents-ai/vulnz/internal/utils/oval"
 )
 
 var _ = Describe("OVAL Types", func() {

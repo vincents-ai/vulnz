@@ -14,7 +14,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 // ExampleProvider demonstrates a minimal provider implementation.
@@ -100,7 +100,7 @@ func (p *ExampleProvider) Metadata() provider.Metadata {
 		Name:        "example",
 		Description: "Example vulnerability data provider",
 		Version:     "1.0.0",
-		Homepage:    "https://github.com/shift/vulnz",
+		Homepage:    "https://github.com/vincents-ai/vulnz",
 	}
 }
 
@@ -132,8 +132,8 @@ func main() {
 func runSingleProvider(logger *slog.Logger) {
 	// Import the provider package to trigger registration
 	// In a real application, you would import specific provider packages:
-	// import _ "github.com/shift/vulnz/providers/alpine"
-	// import _ "github.com/shift/vulnz/providers/debian"
+	// import _ "github.com/vincents-ai/vulnz/providers/alpine"
+	// import _ "github.com/vincents-ai/vulnz/providers/debian"
 
 	config := provider.Config{
 		Name:      "example",

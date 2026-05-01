@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 type indexEntry struct {

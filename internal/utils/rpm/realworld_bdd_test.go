@@ -4,7 +4,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/utils/rpm"
+	"github.com/vincents-ai/vulnz/internal/utils/rpm"
 )
 
 var _ = Describe("Real-World RPM Comparisons", func() {

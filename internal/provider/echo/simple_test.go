@@ -3,8 +3,8 @@ package echo_test
 import (
 	"testing"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/provider/echo"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider/echo"
 )
 
 // TestCompilation is a simple test to verify the package compiles

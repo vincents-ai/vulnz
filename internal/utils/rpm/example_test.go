@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/shift/vulnz/internal/utils/rpm"
+	"github.com/vincents-ai/vulnz/internal/utils/rpm"
 )
 
 // Example 1: Basic version comparison

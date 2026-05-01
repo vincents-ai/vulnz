@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/storage"
-	"github.com/shift/vulnz/internal/utils/vulnerability"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/utils/vulnerability"
 )
 
 const SchemaURL = "https://raw.githubusercontent.com/anchore/vunnel/main/schema/vulnerability/os/schema-1.0.0.json"

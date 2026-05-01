@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/storage"
-	"github.com/shift/vulnz/internal/workspace"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/workspace"
 )
 
 const (
@@ -144,7 +144,7 @@ func (p *Provider) Metadata() provider.Metadata {
 		Name:        "echo",
 		Description: "Test provider with mock vulnerability data for framework validation",
 		Version:     "1.0.0",
-		Homepage:    "https://github.com/shift/vulnz",
+		Homepage:    "https://github.com/vincents-ai/vulnz",
 	}
 }
 

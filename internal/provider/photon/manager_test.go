@@ -11,8 +11,8 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/provider/photon"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider/photon"
 )
 
 var _ = Describe("Photon Manager", func() {

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/storage"
 )
 
 var defaultVersions = []string{"1.0", "2.0", "3.0"}

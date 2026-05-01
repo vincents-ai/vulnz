@@ -12,8 +12,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/utils/vulnerability"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/utils/vulnerability"
 )
 
 var distroVersion = map[string]string{

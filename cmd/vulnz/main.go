@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shift/vulnz/internal/cli"
-	_ "github.com/shift/vulnz/internal/providers"
+	"github.com/vincents-ai/vulnz/internal/cli"
+	_ "github.com/vincents-ai/vulnz/internal/providers"
 )
 
 func main() {

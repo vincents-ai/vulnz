@@ -9,7 +9,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/shift/vulnz/internal/utils/vulnerability"
+	"github.com/vincents-ai/vulnz/internal/utils/vulnerability"
 )
 
 // Parser fetches and parses Echo test data.

@@ -9,7 +9,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/utils/archive"
+	"github.com/vincents-ai/vulnz/internal/utils/archive"
 )
 
 var _ = Describe("Security Functions", func() {

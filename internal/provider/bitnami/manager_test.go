@@ -10,8 +10,8 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/provider/bitnami"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider/bitnami"
 )
 
 func writeTestAdvisory(dir string, relPath string, advisory map[string]interface{}) error {

@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/go-git/go-git/v5"
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 type Manager struct {

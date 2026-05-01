@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/shift/vulnz/internal/utils/csaf"
-	"github.com/shift/vulnz/internal/utils/oval"
-	"github.com/shift/vulnz/internal/utils/rpm"
-	"github.com/shift/vulnz/internal/utils/vulnerability"
+	"github.com/vincents-ai/vulnz/internal/utils/csaf"
+	"github.com/vincents-ai/vulnz/internal/utils/oval"
+	"github.com/vincents-ai/vulnz/internal/utils/rpm"
+	"github.com/vincents-ai/vulnz/internal/utils/vulnerability"
 )
 
 func FuzzParseVulnerability(f *testing.F) {

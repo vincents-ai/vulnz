@@ -8,7 +8,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 var _ = Describe("Provider Registry", func() {

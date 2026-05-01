@@ -16,7 +16,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	httpClient "github.com/shift/vulnz/internal/http"
+	httpClient "github.com/vincents-ai/vulnz/internal/http"
 )
 
 var _ = Describe("HTTP Client", func() {

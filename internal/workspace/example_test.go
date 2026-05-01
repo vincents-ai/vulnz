@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/shift/vulnz/internal/workspace"
+	"github.com/vincents-ai/vulnz/internal/workspace"
 )
 
 // Example_basicUsage demonstrates the basic workspace management operations.

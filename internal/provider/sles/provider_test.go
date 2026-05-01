@@ -9,8 +9,8 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/provider/sles"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider/sles"
 )
 
 var _ = Describe("SLES Provider", func() {

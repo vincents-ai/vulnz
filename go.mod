@@ -1,4 +1,4 @@
-module github.com/shift/vulnz
+module github.com/vincents-ai/vulnz
 
 go 1.25.8
 

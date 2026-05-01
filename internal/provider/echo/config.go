@@ -5,7 +5,7 @@ package echo
 import (
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 // Config holds Echo provider configuration.

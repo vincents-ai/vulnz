@@ -9,8 +9,8 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider"
-	euvdmapping "github.com/shift/vulnz/internal/provider/euvd-mapping"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	euvdmapping "github.com/vincents-ai/vulnz/internal/provider/euvd-mapping"
 )
 
 var _ = Describe("EUVD Mapping Provider", func() {

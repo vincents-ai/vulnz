@@ -10,7 +10,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider/ubuntu"
+	"github.com/vincents-ai/vulnz/internal/provider/ubuntu"
 )
 
 func writeTestCVEFile(dir, filename, content string) {

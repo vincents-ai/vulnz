@@ -11,8 +11,8 @@ import (
 	"strings"
 
 	"github.com/gocsaf/csaf/v3/csaf"
-	"github.com/shift/vulnz/internal/utils/archive"
-	"github.com/shift/vulnz/internal/utils/vulnerability"
+	"github.com/vincents-ai/vulnz/internal/utils/archive"
+	"github.com/vincents-ai/vulnz/internal/utils/vulnerability"
 )
 
 type CSAFDownloader struct {

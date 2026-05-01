@@ -13,9 +13,9 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/provider/amazon"
-	"github.com/shift/vulnz/internal/utils/vulnerability"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider/amazon"
+	"github.com/vincents-ai/vulnz/internal/utils/vulnerability"
 )
 
 const mockRSSAL2 = `<?xml version="1.0" encoding="UTF-8"?>

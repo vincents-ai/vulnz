@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/shift/vulnz/pkg/api"
+	"github.com/vincents-ai/vulnz/pkg/api"
 )
 
 // TestIngest_InvalidWorkspace verifies that Ingest returns a non-nil error

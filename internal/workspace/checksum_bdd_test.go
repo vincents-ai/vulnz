@@ -10,7 +10,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/workspace"
+	"github.com/vincents-ai/vulnz/internal/workspace"
 )
 
 var _ = Describe("Checksum Operations", func() {

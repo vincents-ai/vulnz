@@ -8,7 +8,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/storage"
 )
 
 var _ = Describe("Storage Backend Integration", func() {

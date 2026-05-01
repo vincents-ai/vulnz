@@ -12,7 +12,7 @@ import (
 	"log/slog"
 
 	"github.com/fatih/color"
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 	"github.com/spf13/cobra"
 )
 

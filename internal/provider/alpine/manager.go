@@ -10,7 +10,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 	"gopkg.in/yaml.v3"
 )
 

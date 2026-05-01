@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/shift/vulnz/internal/utils/archive"
+	"github.com/vincents-ai/vulnz/internal/utils/archive"
 )
 
 // Example demonstrates basic archive extraction

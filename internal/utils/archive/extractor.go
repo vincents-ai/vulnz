@@ -15,7 +15,7 @@ import (
 	"strings"
 
 	"github.com/klauspost/compress/zstd"
-	"github.com/shift/vulnz/internal/utils"
+	"github.com/vincents-ai/vulnz/internal/utils"
 	"github.com/sirupsen/logrus"
 )
 

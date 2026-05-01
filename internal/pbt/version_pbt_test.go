@@ -3,7 +3,7 @@ package pbt
 import (
 	"testing"
 
-	"github.com/shift/vulnz/internal/utils/rpm"
+	"github.com/vincents-ai/vulnz/internal/utils/rpm"
 	"pgregory.net/rapid"
 )
 

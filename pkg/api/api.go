@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
-	_ "github.com/shift/vulnz/internal/providers"
-	"github.com/shift/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	_ "github.com/vincents-ai/vulnz/internal/providers"
+	"github.com/vincents-ai/vulnz/internal/storage"
 )
 
 type IngestOptions struct {

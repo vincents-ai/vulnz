@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"github.com/cespare/xxhash/v2"
-	"github.com/shift/vulnz/internal/utils"
+	"github.com/vincents-ai/vulnz/internal/utils"
 )
 
 // ChecksumFile represents the checksums file format.

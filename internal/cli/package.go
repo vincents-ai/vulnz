@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/shift/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/storage"
 
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/spf13/cobra"

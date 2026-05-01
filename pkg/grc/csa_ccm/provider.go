@@ -10,8 +10,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/shift/vulnz/pkg/grc"
-	"github.com/shift/vulnz/pkg/storage"
+	"github.com/vincents-ai/vulnz/pkg/grc"
+	"github.com/vincents-ai/vulnz/pkg/storage"
 )
 
 const (

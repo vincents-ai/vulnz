@@ -9,7 +9,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/utils/csaf"
+	"github.com/vincents-ai/vulnz/internal/utils/csaf"
 )
 
 var _ = Describe("CSAF Parser", func() {

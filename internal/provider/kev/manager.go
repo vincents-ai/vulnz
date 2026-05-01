@@ -8,8 +8,8 @@ import (
 	"os"
 	"path/filepath"
 
-	vulnzhttp "github.com/shift/vulnz/internal/http"
-	"github.com/shift/vulnz/internal/provider"
+	vulnzhttp "github.com/vincents-ai/vulnz/internal/http"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 // Record represents a single entry from the EUVD consolidated KEV dump.

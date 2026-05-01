@@ -15,8 +15,8 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/provider/nvd"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider/nvd"
 )
 
 func makeNVDResponse(totalResults int, startIndex int, resultsPerPage int, vulns []map[string]interface{}) map[string]interface{} {

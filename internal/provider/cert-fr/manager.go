@@ -11,7 +11,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 const (

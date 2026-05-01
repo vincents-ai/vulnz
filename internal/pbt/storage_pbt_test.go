@@ -8,7 +8,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/shift/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/storage"
 	"pgregory.net/rapid"
 )
 

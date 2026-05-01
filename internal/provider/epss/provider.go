@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/storage"
 )
 
 const DefaultURL = "https://epss.cyentia.com/epss_scores-current.csv.gz"

@@ -15,8 +15,8 @@ import (
 
 	govalParser "github.com/quay/goval-parser/oval"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/provider/oracle"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider/oracle"
 )
 
 const testOVALXML = `<?xml version="1.0" encoding="UTF-8"?>

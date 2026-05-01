@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vulnzstorage "github.com/shift/vulnz/pkg/storage"
+	vulnzstorage "github.com/vincents-ai/vulnz/pkg/storage"
 )
 
 // Re-export types from pkg/storage for use in unified Backend methods.

@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 const (

@@ -9,8 +9,8 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider"
-	certfr "github.com/shift/vulnz/internal/provider/cert-fr"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	certfr "github.com/vincents-ai/vulnz/internal/provider/cert-fr"
 )
 
 const testRSSFeed = `<?xml version="1.0" encoding="UTF-8"?>

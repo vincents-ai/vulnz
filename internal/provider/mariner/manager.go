@@ -14,9 +14,9 @@ import (
 
 	govalParser "github.com/quay/goval-parser/oval"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/utils/oval"
-	"github.com/shift/vulnz/internal/utils/vulnerability"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/utils/oval"
+	"github.com/vincents-ai/vulnz/internal/utils/vulnerability"
 )
 
 var versionToURL = map[string]string{

@@ -13,7 +13,7 @@ import (
 	. "github.com/onsi/gomega"
 
 	"github.com/klauspost/compress/zstd"
-	"github.com/shift/vulnz/internal/utils/archive"
+	"github.com/vincents-ai/vulnz/internal/utils/archive"
 )
 
 var _ = Describe("Archive Extractor", func() {

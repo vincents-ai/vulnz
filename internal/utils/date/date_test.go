@@ -6,7 +6,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/utils/date"
+	"github.com/vincents-ai/vulnz/internal/utils/date"
 )
 
 func TestDate(t *testing.T) {

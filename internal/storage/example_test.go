@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/shift/vulnz/internal/storage"
+	"github.com/vincents-ai/vulnz/internal/storage"
 )
 
 // ExampleSQLiteBackend demonstrates basic usage of the SQLite backend.

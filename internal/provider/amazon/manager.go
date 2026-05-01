@@ -13,9 +13,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/shift/vulnz/internal/provider"
-	"github.com/shift/vulnz/internal/utils/rpm"
-	"github.com/shift/vulnz/internal/utils/vulnerability"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/utils/rpm"
+	"github.com/vincents-ai/vulnz/internal/utils/vulnerability"
 	"golang.org/x/net/html"
 )
 

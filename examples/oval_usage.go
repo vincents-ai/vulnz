@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/shift/vulnz/internal/utils/oval"
+	"github.com/vincents-ai/vulnz/internal/utils/oval"
 )
 
 func main() {

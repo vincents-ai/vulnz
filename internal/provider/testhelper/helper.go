@@ -14,7 +14,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/shift/vulnz/internal/provider"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 // NewConfig returns a provider.Config suitable for unit tests.

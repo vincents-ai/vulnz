@@ -14,8 +14,8 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/shift/vulnz/internal/provider"
-	chainguardlibraries "github.com/shift/vulnz/internal/provider/chainguard-libraries"
+	"github.com/vincents-ai/vulnz/internal/provider"
+	chainguardlibraries "github.com/vincents-ai/vulnz/internal/provider/chainguard-libraries"
 )
 
 var _ = Describe("Chainguard Libraries Manager", func() {

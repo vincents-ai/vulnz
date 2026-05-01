@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log/slog"
 
-	"github.com/shift/vulnz/pkg/grc"
-	"github.com/shift/vulnz/pkg/storage"
+	"github.com/vincents-ai/vulnz/pkg/grc"
+	"github.com/vincents-ai/vulnz/pkg/storage"
 )
 
 const FrameworkID = "SCAP_XCCDF"
