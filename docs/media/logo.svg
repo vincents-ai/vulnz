@@ -1,0 +1,52 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 
+    Vulnz Logo (vincents.ai family)
+    - Palette: Ruby/Rose (Security & Threat Intelligence)
+    - Outer Ring: 28 segments representing the 28 data providers
+    - Central Motif: The "Funnel" / Unified Schema Transformer
+  -->
+
+  <!-- Outer Ring: The 28 Providers (r=210) -->
+  <g id="providers-28-outer" stroke-width="20" stroke-linecap="round">
+    <!-- Ruby/Rose spectrum segments -->
+    <!-- Using a dasharray to create 28 high-density segments -->
+    <circle cx="256" cy="256" r="210" stroke="#e11d48" stroke-opacity="0.1" />
+    <path d="M256 46 A 210 210 0 1 1 255.9 46" stroke="#e11d48" stroke-dasharray="8 15.5" />
+    
+    <!-- Primary Brand Anchors (Cardinal points) -->
+    <path d="M256 46 A 210 210 0 0 1 310 54" stroke="#fb923c" stroke-width="22" />
+    <path d="M202 54 A 210 210 0 0 1 256 46" stroke="#f43f5e" stroke-width="22" />
+  </g>
+
+  <!-- Middle Ring: Concurrency & Rate Limiting (r=145) -->
+  <g id="concurrency-ring" stroke-width="14" stroke-linecap="round">
+    <circle cx="256" cy="256" r="145" stroke="#e11d48" stroke-opacity="0.1" />
+    <!-- Goroutine-based concurrent execution paths -->
+    <path d="M256 111 A 145 145 0 0 1 401 256" stroke="#f43f5e" stroke-dasharray="30 10 70 10" />
+    <path d="M401 256 A 145 145 0 0 1 256 401" stroke="#e11d48" stroke-dasharray="10 10 80 10" stroke-opacity="0.8" />
+    <path d="M111 256 A 145 145 0 0 1 256 111" stroke="#fb7185" stroke-dasharray="50 20" />
+  </g>
+
+  <!-- Inner Core: The Unified Schema Funnel (r=85) -->
+  <g id="funnel-core">
+    <circle cx="256" cy="256" r="85" stroke="#e11d48" stroke-width="18" stroke-dasharray="15 20" stroke-linecap="round" />
+    
+    <!-- Funnel/Sieve Motif (Merging 28 sources into 1 schema) -->
+    <g stroke="#e11d48" stroke-width="10" stroke-linecap="round">
+      <path d="M210 210 L 256 256" />
+      <path d="M302 210 L 256 256" />
+      <path d="M256 256 L 256 320" />
+    </g>
+    
+    <!-- Terminal Nodes (Collection -> Transformation -> Storage) -->
+    <circle cx="210" cy="210" r="8" fill="#fb923c" />
+    <circle cx="302" cy="210" r="8" fill="#f43f5e" />
+    <circle cx="256" cy="320" r="10" fill="#e11d48" />
+  </g>
+
+  <!-- Cardinal Status Nodes -->
+  <circle cx="256" cy="46" r="6" fill="#fb923c" /> <!-- Brand Hook -->
+  <circle cx="466" cy="256" r="6" fill="#e11d48" /> <!-- Provider Feed -->
+  <circle cx="256" cy="466" r="6" fill="#f43f5e" /> <!-- SQLite Sink -->
+  <circle cx="46" cy="256" r="6" fill="#fb7185" />  <!-- EU CRA Tag -->
+</svg>
