@@ -2,56 +2,41 @@
 
 ## Supported Versions
 
+We support the latest release. Security patches are applied to the `main` branch.
+
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
+| latest  | ✅                 |
+| older   | ❌                 |
 
 ## Reporting a Vulnerability
 
-Because vulnz is a security tool, we take security seriously. If you discover a security vulnerability, please follow responsible disclosure:
+**Do not report security vulnerabilities through public GitHub issues.**
 
-### How to Report
+Instead, report them via:
 
-1. **Do NOT open a public GitHub issue** -- this could expose users to risk
-2. **Use GitHub Security Advisories** -- Go to the [Security tab](https://github.com/shift/vulnz/security) and click "Report a vulnerability"
-3. **Or email directly** -- Contact the maintainer at [shift+vulnz@someone.section.me](mailto:shift+vulnz@somoene.section.me) with the subject line: `[SECURITY] vulnz: <brief description>`
+- **Email**: security@vincents.ai
+- **GitHub Security Advisories**: Use [GitHub's private vulnerability reporting](https://github.com/vincents-ai/vulnz/security/advisories/new) for this repository.
+
+We aim to respond within **24 hours** and provide a detailed response within **72 hours**, consistent with EU Cyber Resilience Act (CRA) Article 10 timelines.
 
 ### What to Include
 
-- A clear description of the vulnerability
-- Steps to reproduce the issue
-- Potential impact assessment
-- Suggested fix (if applicable)
+- Description of the vulnerability
+- Affected component and version
+- Steps to reproduce (if applicable)
+- Potential impact
+- Any suggested fixes or mitigations
 
-### What to Expect
+## Security Update Policy
 
-- **Acknowledgment**: Within 48 hours of your report
-- **Status updates**: Every 5 business days while we investigate
-- **Resolution timeline**: We aim to resolve critical issues within 7 days
-- **Credit**: We will publicly credit reporters (unless you prefer to remain anonymous)
+| Severity | Response Time | Patch Target |
+|----------|--------------|-------------|
+| Critical / Exploited | 24 hours | 72 hours |
+| Critical | 72 hours | 7 days |
+| High | 7 days | 14 days |
+| Medium / Low | 14 days | 30 days |
 
-### Scope
+## Third-Party Dependencies
 
-Security issues may include:
-- Remote code execution through malicious input data
-- Path traversal vulnerabilities in archive extraction
-- Credential leakage in logs or error messages
-- Denial of service through resource exhaustion
-- Supply chain attacks through compromised dependencies
-
-### Out of Scope
-
-- Upstream data source issues (NVD, ENISA, etc.)
-- Known limitations documented in README
-- Issues in development dependencies not shipped in binaries
-
-## Security Best Practices for Users
-
-- Always run vulnz with the latest version
-- Use a dedicated API key for NVD access (set `NVD_API_KEY` environment variable)
-- Review workspace directories periodically for orphaned files
-- Run in a containerized or sandboxed environment when processing untrusted data sources
-
-## Contact
-
-For non-security questions, open a regular GitHub issue or contact the maintainer.
+This project uses Go modules with `go.sum` for dependency integrity. We monitor for known vulnerabilities in dependencies and update promptly.
