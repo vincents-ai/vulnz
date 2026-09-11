@@ -225,7 +225,9 @@ func convertEUVD(id string, item map[string]interface{}) FeedRecord {
 	}
 	rec.Cve = cveID
 
-	if baseScore, ok := item["baseScore"].(float64); ok {
+	if baseScore, ok := item["baseScore"].(float64); ok && baseScore >= 0 && baseScore <= 10 {
+		rec.BaseScore = &baseScore
+		rec.BaseScoreVector = toString(item["baseScoreVector"])
 		switch {
 		case baseScore >= 9.0:
 			rec.EnisaSeverity = "Critical"
@@ -281,6 +283,7 @@ func convertBSI(id string, item map[string]interface{}) FeedRecord {
 	var tr03116Compliant *bool
 
 	if meta, ok := item["metadata"].(map[string]interface{}); ok {
+		rec.BsiSeverity = toString(meta["aggregate_severity_de"])
 		if v, ok := meta["advisory_id"].(string); ok {
 			advisoryID = v
 		}

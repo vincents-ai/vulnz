@@ -9,6 +9,10 @@ type AffectedProduct struct {
 }
 
 type FeedRecord struct {
+	// Scores are nullable: absence is not a CVSS score of zero.
+	BaseScore           *float64
+	BaseScoreVector     string
+	BsiSeverity         string
 	Cve                 string
 	KevExploited        bool
 	KevDateAdded        *time.Time
