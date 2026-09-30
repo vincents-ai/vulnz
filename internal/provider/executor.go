@@ -273,7 +273,11 @@ func (e *Executor) runProvider(ctx context.Context, name string) Result {
 
 	// Update workspace state on success
 	if err == nil {
-		if stateErr := e.updateState(name, urls, count); stateErr != nil {
+		// Commit the run's start time as the next cursor, not the completion
+		// time. See updateState: a completion-time cursor can leave a permanent
+		// hole between the window this run requested and the one the next run
+		// will request.
+		if stateErr := e.updateState(name, urls, count, start); stateErr != nil {
 			e.logger.Warn("failed to update workspace state",
 				"provider", name,
 				"error", stateErr)
@@ -307,7 +311,23 @@ func (e *Executor) readLastUpdated(name string) *time.Time {
 }
 
 // updateState writes the workspace metadata after a successful provider run.
-func (e *Executor) updateState(name string, urls []string, count int) error {
+//
+// cursor is the high-water mark the next run should resume from, and it must
+// be the upper bound this run actually requested from the provider — NOT the
+// time this function happens to be called.
+//
+// The NVD incremental query is bounded by a lastModEndDate captured when the
+// request is built, while completion happens later, potentially much later for
+// a large paginated run. Persisting the completion time therefore sets the
+// next run's lower bound above the previous run's upper bound, and every
+// record modified in that interval is fetched by neither run: a permanent,
+// silent gap in a vulnerability feed.
+//
+// Passing the run's start time instead means the next window starts at or
+// before the previous window ended, so the two windows overlap rather than
+// leave a hole. The overlap is replayed, and the write path is an idempotent
+// upsert, so replaying is safe. Losing a record is not.
+func (e *Executor) updateState(name string, urls []string, count int, cursor time.Time) error {
 	workspacePath := filepath.Join(e.workspace, name)
 	metadataPath := filepath.Join(workspacePath, "metadata.json")
 	tempPath := metadataPath + ".tmp"
@@ -320,7 +340,7 @@ func (e *Executor) updateState(name string, urls []string, count int) error {
 		"provider":             name,
 		"urls":                 urls,
 		"store":                e.storeType,
-		"timestamp":            time.Now().UTC(),
+		"timestamp":            cursor.UTC(),
 		"version":              1,
 		"distribution_version": 1,
 		"processor":            "vulnz",
