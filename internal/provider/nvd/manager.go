@@ -149,8 +149,23 @@ func (m *Manager) GetStream(ctx context.Context, lastUpdated *time.Time, storage
 		}
 
 		if err := storageBackend.Write(ctx, envelope); err != nil {
-			m.config.Logger.WarnContext(ctx, "failed to write NVD record", "id", recordID, "error", err)
-			return nil
+			// Propagate. This used to log a warning and return nil, which made
+			// a failed write indistinguishable from a successful one: the page
+			// loop kept going, GetStream returned (count, nil), and the executor
+			// advanced its cursor past a record that was never persisted. The
+			// next incremental sync would then start after the gap and the
+			// vulnerability would be lost silently, with no error anywhere and
+			// no sign the feed was incomplete.
+			//
+			// Aborting the stream is the correct response. A non-nil callback
+			// error propagates out of the page loop (see streamPages), so the
+			// run is reported as failed and the cursor does not move. The
+			// records already written stay written, and because the cursor has
+			// not advanced the next run re-covers the same window, so those
+			// records are simply re-written idempotently.
+			m.config.Logger.ErrorContext(ctx, "failed to write NVD record, aborting sync to avoid skipping it",
+				"id", recordID, "error", err, "persisted_before_failure", count)
+			return err
 		}
 		count++
 		return nil
