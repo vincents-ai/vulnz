@@ -1,6 +1,7 @@
 package http
 
 import (
+	"errors"
 	"math"
 	"math/rand"
 	"net"
@@ -32,14 +33,19 @@ func DefaultRetryConfig() RetryConfig {
 func shouldRetry(statusCode int, err error) bool {
 	// Network errors are retryable
 	if err != nil {
-		// Timeout errors
-		if netErr, ok := err.(net.Error); ok && netErr.Timeout() {
+		// errors.As, not a type assertion. This package wraps errors with %w
+		// throughout, and a bare assertion fails on a wrapped error, so a
+		// transient timeout arriving from any wrapping caller was treated as
+		// non-retryable. That is the same class of silent failure the cursor
+		// work in this repository was about: the pipeline decided the work was
+		// done when it was not.
+		var netErr net.Error
+		if errors.As(err, &netErr) && netErr.Timeout() {
 			return true
 		}
-		// Temporary network errors
-		if netErr, ok := err.(net.Error); ok && netErr.Temporary() {
-			return true
-		}
+		// Temporary() is deprecated and has been a no-op returning false for
+		// most standard errors for years; the message-based checks below already
+		// cover the transient cases it was meant to catch.
 		// Connection refused, reset, etc.
 		errStr := err.Error()
 		if strings.Contains(errStr, "connection refused") ||

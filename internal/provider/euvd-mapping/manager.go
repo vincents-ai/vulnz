@@ -3,6 +3,7 @@ package euvdmapping
 import (
 	"context"
 	"encoding/csv"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -123,7 +124,12 @@ func parseCSV(data []byte) ([]Mapping, error) {
 			break
 		}
 		if err != nil {
-			if _, ok := err.(*csv.ParseError); ok {
+			// A bare type assertion fails once the error has been WRAPPED, and
+			// this file wraps errors with %w throughout. That turned a malformed
+			// CSV row into a hard failure of the whole import instead of the
+			// skip it was written to be.
+			var parseErr *csv.ParseError
+			if errors.As(err, &parseErr) {
 				continue
 			}
 			return nil, fmt.Errorf("read CSV record: %w", err)

@@ -73,7 +73,7 @@ func (g *GitManager) Pull(ctx context.Context) error {
 	if err != nil {
 		g.logger.Warn("failed to open repo, re-cloning", "error", err)
 		if rmErr := os.RemoveAll(g.dest); rmErr != nil {
-			return fmt.Errorf("open repo failed and could not remove dir: open=%w, rm=%v", err, rmErr)
+			return fmt.Errorf("open repo failed and could not remove dir: open=%w, rm=%w", err, rmErr)
 		}
 		return g.Clone(ctx)
 	}
@@ -82,7 +82,7 @@ func (g *GitManager) Pull(ctx context.Context) error {
 	if err != nil {
 		g.logger.Warn("failed to get worktree, re-cloning", "error", err)
 		if rmErr := os.RemoveAll(g.dest); rmErr != nil {
-			return fmt.Errorf("worktree failed and could not remove dir: wt=%w, rm=%v", err, rmErr)
+			return fmt.Errorf("worktree failed and could not remove dir: wt=%w, rm=%w", err, rmErr)
 		}
 		return g.Clone(ctx)
 	}
@@ -90,7 +90,7 @@ func (g *GitManager) Pull(ctx context.Context) error {
 	if err := worktree.Reset(&git.ResetOptions{Mode: git.HardReset}); err != nil {
 		g.logger.Warn("git reset failed, re-cloning", "error", err)
 		if rmErr := os.RemoveAll(g.dest); rmErr != nil {
-			return fmt.Errorf("reset failed and could not remove dir: reset=%w, rm=%v", err, rmErr)
+			return fmt.Errorf("reset failed and could not remove dir: reset=%w, rm=%w", err, rmErr)
 		}
 		return g.Clone(ctx)
 	}
@@ -104,7 +104,7 @@ func (g *GitManager) Pull(ctx context.Context) error {
 	}); err != nil {
 		g.logger.Warn("failed to set remote url, re-cloning", "error", err)
 		if rmErr := os.RemoveAll(g.dest); rmErr != nil {
-			return fmt.Errorf("set remote failed and could not remove dir: remote=%w, rm=%v", err, rmErr)
+			return fmt.Errorf("set remote failed and could not remove dir: remote=%w, rm=%w", err, rmErr)
 		}
 		return g.Clone(ctx)
 	}
@@ -115,7 +115,7 @@ func (g *GitManager) Pull(ctx context.Context) error {
 	}); err != nil {
 		g.logger.Warn("git checkout failed, re-cloning", "error", err)
 		if rmErr := os.RemoveAll(g.dest); rmErr != nil {
-			return fmt.Errorf("checkout failed and could not remove dir: checkout=%w, rm=%v", err, rmErr)
+			return fmt.Errorf("checkout failed and could not remove dir: checkout=%w, rm=%w", err, rmErr)
 		}
 		return g.Clone(ctx)
 	}
@@ -130,7 +130,7 @@ func (g *GitManager) Pull(ctx context.Context) error {
 	if err != nil {
 		g.logger.Warn("git pull failed, re-cloning", "error", err)
 		if rmErr := os.RemoveAll(g.dest); rmErr != nil {
-			return fmt.Errorf("git pull failed and could not remove dir: pull=%w, rm=%v", err, rmErr)
+			return fmt.Errorf("git pull failed and could not remove dir: pull=%w, rm=%w", err, rmErr)
 		}
 		return g.Clone(ctx)
 	}

@@ -39,6 +39,15 @@ Examples:
 	RunE: runStatus,
 }
 
+// Status labels are compared in several places and rendered in others, so
+// they are named once rather than repeated as literals.
+const (
+	statusJSON      = "json"
+	statusRecent    = "recent"
+	statusStale     = "stale"
+	statusVeryStale = "very stale"
+)
+
 func init() {
 	rootCmd.AddCommand(statusCmd)
 
@@ -77,7 +86,7 @@ func runStatus(cmd *cobra.Command, args []string) error {
 	})
 
 	// Output as JSON if requested
-	if outputFmt == "json" {
+	if outputFmt == statusJSON {
 		return printStatusJSON(statuses)
 	}
 
@@ -182,7 +191,7 @@ type MetadataFile struct {
 	Timestamp           time.Time `json:"timestamp"`
 	URLs                []string  `json:"urls"`
 	Store               string    `json:"store"`
-	Stale               bool      `json:"stale"`
+	Stale               bool      `json:statusStale`
 }
 
 // loadMetadata loads metadata from a file
@@ -224,11 +233,11 @@ func calculateFreshness(lastRun time.Time) string {
 	if age < 24*time.Hour {
 		return "fresh"
 	} else if age < 7*24*time.Hour {
-		return "recent"
+		return statusRecent
 	} else if age < 30*24*time.Hour {
-		return "stale"
+		return statusStale
 	} else {
-		return "very stale"
+		return statusVeryStale
 	}
 }
 
@@ -279,11 +288,11 @@ func printStatusTable(statuses []ProviderStatusInfo) {
 		// Color code freshness
 		freshnessColor := color.New(color.FgGreen)
 		switch s.Freshness {
-		case "recent":
+		case statusRecent:
 			freshnessColor = color.New(color.FgYellow)
-		case "stale":
+		case statusStale:
 			freshnessColor = color.New(color.FgRed)
-		case "very stale":
+		case statusVeryStale:
 			freshnessColor = color.New(color.FgRed, color.Bold)
 		}
 
@@ -319,11 +328,11 @@ func printDetailedStatus(status ProviderStatusInfo) {
 	// Color code freshness
 	freshnessColor := color.New(color.FgGreen)
 	switch status.Freshness {
-	case "recent":
+	case statusRecent:
 		freshnessColor = color.New(color.FgYellow)
-	case "stale":
+	case statusStale:
 		freshnessColor = color.New(color.FgRed)
-	case "very stale":
+	case statusVeryStale:
 		freshnessColor = color.New(color.FgRed, color.Bold)
 	}
 	fmt.Printf("Freshness:        %s\n", colorize(freshnessColor, status.Freshness))

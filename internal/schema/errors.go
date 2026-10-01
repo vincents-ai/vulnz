@@ -1,6 +1,7 @@
 package schema
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 
@@ -20,9 +21,9 @@ func (e *ValidationError) Error() string {
 	}
 
 	var sb strings.Builder
-	sb.WriteString(fmt.Sprintf("validation failed for schema %s:\n", e.SchemaURL))
+	fmt.Fprintf(&sb, "validation failed for schema %s:\n", e.SchemaURL)
 	for i, err := range e.Errors {
-		sb.WriteString(fmt.Sprintf("  [%d] %s\n", i+1, err))
+		fmt.Fprintf(&sb, "  [%d] %s\n", i+1, err)
 	}
 	return sb.String()
 }
@@ -40,7 +41,11 @@ func FormatValidationError(schemaURL string, err error) *ValidationError {
 	}
 
 	// Check if it's a validation error from jsonschema
-	if ve, ok := err.(*jsonschema.ValidationError); ok {
+	// errors.As, not a type assertion: anything upstream that wraps the
+	// validation error made the assertion fail and silently discarded the
+	// detailed schema errors, which is the entire purpose of this function.
+	var ve *jsonschema.ValidationError
+	if errors.As(err, &ve) {
 		verr.Errors = append(verr.Errors, formatSchemaError(ve))
 
 		// Add detailed errors if available
