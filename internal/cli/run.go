@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/fatih/color"
-	"github.com/vincents-ai/vulnz/internal/provider"
 	"github.com/spf13/cobra"
+	"github.com/vincents-ai/vulnz/internal/provider"
 )
 
 var (

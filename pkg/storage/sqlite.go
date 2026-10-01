@@ -334,7 +334,6 @@ func (s *SQLiteBackend) ListControlsByTag(ctx context.Context, tag string) ([]Co
 	return []ControlRow{}, nil
 }
 
-
 // Write writes a vulnerability envelope (old method, delegates to WriteVulnerability).
 func (s *SQLiteBackend) Write(ctx context.Context, envelope *Envelope) error {
 	return s.WriteVulnerability(ctx, envelope.Identifier, envelope.Item)

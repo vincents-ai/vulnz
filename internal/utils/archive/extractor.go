@@ -8,6 +8,7 @@ import (
 	"compress/bzip2"
 	"compress/gzip"
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -15,8 +16,8 @@ import (
 	"strings"
 
 	"github.com/klauspost/compress/zstd"
-	"github.com/vincents-ai/vulnz/internal/utils"
 	"github.com/sirupsen/logrus"
+	"github.com/vincents-ai/vulnz/internal/utils"
 )
 
 // CompressionType represents the compression format of an archive.
@@ -183,7 +184,7 @@ func extractTar(ctx context.Context, reader io.Reader, destDir string) error {
 		}
 
 		header, err := tarReader.Next()
-		if err == io.EOF {
+		if errors.Is(err, io.EOF) {
 			break // End of archive
 		}
 		if err != nil {

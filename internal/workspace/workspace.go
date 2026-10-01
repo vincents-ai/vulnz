@@ -10,10 +10,9 @@ import (
 const (
 	MetadataFilename = "metadata.json"
 	ChecksumFilename = "checksums"
-	InputDir = "input"
-	ResultsDir = "results"
+	InputDir         = "input"
+	ResultsDir       = "results"
 )
-
 
 // Workspace defines the interface for workspace operations.
 type Workspace interface {

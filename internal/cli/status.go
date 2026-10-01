@@ -191,7 +191,7 @@ type MetadataFile struct {
 	Timestamp           time.Time `json:"timestamp"`
 	URLs                []string  `json:"urls"`
 	Store               string    `json:"store"`
-	Stale               bool      `json:statusStale`
+	Stale               bool      `json:"stale"`
 }
 
 // loadMetadata loads metadata from a file

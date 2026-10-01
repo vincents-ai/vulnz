@@ -239,7 +239,7 @@ func GetFamily(def *govalParser.Definition) string {
 	}
 
 	// Try to get family from affected platforms
-	if def.Affecteds != nil && len(def.Affecteds) > 0 {
+	if len(def.Affecteds) > 0 {
 		for _, affected := range def.Affecteds {
 			if affected.Family != "" {
 				return affected.Family

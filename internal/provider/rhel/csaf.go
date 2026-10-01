@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -123,8 +124,19 @@ func (d *CSAFDownloader) ProcessChanges(ctx context.Context, archiveDate string)
 				continue
 			}
 			fragment := strings.Trim(line, "\"")
-			target := filepath.Join(d.advisoriesPath, fragment)
-			os.Remove(target)
+			target, err := safeJoin(d.advisoriesPath, fragment)
+			if err != nil {
+				// The deletions list is DOWNLOADED DATA. Joining a fragment from
+				// it straight onto the advisories directory let a crafted entry
+				// such as "../../../etc/passwd" delete outside it, and the
+				// removal error was discarded, so the deletion failed silently
+				// as well. Both are fixed here.
+				slog.Warn("skipping unsafe deletion entry", "entry", fragment, "error", err)
+				continue
+			}
+			if rmErr := os.Remove(target); rmErr != nil && !os.IsNotExist(rmErr) {
+				slog.Warn("failed to remove deleted advisory", "path", target, "error", rmErr)
+			}
 		}
 	}
 
@@ -589,4 +601,30 @@ func RecordsToVulnerabilities(records []CSAFRecord) []vulnerability.Vulnerabilit
 	}
 
 	return vulns
+}
+
+// safeJoin resolves a path fragment inside base and refuses anything that would
+// escape it.
+//
+// Fragments here come from a downloaded deletions manifest, so they are
+// untrusted input. filepath.Join alone does not provide containment: it cleans
+// the result, so base + "../../etc/passwd" resolves to a path outside base and
+// the caller proceeds to delete it. Checking that the cleaned result is still
+// within the cleaned base is what actually provides the guarantee.
+func safeJoin(base, fragment string) (string, error) {
+	if fragment == "" {
+		return "", fmt.Errorf("empty path fragment")
+	}
+	// An absolute fragment is never a relative deletion.
+	if filepath.IsAbs(fragment) {
+		return "", fmt.Errorf("absolute path not permitted: %s", fragment)
+	}
+	cleanBase := filepath.Clean(base)
+	target := filepath.Clean(filepath.Join(cleanBase, fragment))
+	// A traversal resolves to a path that no longer has base as a prefix. The
+	// separator check stops "/data/advisories-evil" matching "/data/advisories".
+	if target != cleanBase && !strings.HasPrefix(target, cleanBase+string(os.PathSeparator)) {
+		return "", fmt.Errorf("path %q escapes %q", fragment, base)
+	}
+	return target, nil
 }

@@ -10,7 +10,7 @@ import (
 	. "github.com/onsi/gomega"
 
 	"github.com/vincents-ai/vulnz/internal/provider"
-	"github.com/vincents-ai/vulnz/internal/provider/cisa-ics-cert"
+	csatics "github.com/vincents-ai/vulnz/internal/provider/cisa-ics-cert"
 )
 
 var _ = Describe("CISA ICS-CERT Manager", func() {

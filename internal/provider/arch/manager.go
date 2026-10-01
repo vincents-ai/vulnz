@@ -161,7 +161,9 @@ func (m *Manager) fetchAll(ctx context.Context) ([]advisoryEntry, error) {
 		return nil, fmt.Errorf("create temp file: %w", err)
 	}
 	if _, err := io.Copy(f, resp.Body); err != nil {
-		f.Close()
+		// Close before returning rather than leaking the descriptor; the write
+		// already failed, so only the cleanup matters here.
+		_ = f.Close()
 		return nil, fmt.Errorf("stream response to file: %w", err)
 	}
 	if err := f.Close(); err != nil {

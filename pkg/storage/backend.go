@@ -45,15 +45,15 @@ type Envelope struct {
 
 // VulnerabilityRow represents a row from the vulnerabilities table.
 type VulnerabilityRow struct {
-	ID    string `json:"id"`
-	Data  []byte `json:"data"`
+	ID   string `json:"id"`
+	Data []byte `json:"data"`
 }
 
 // ControlRow represents a row from the grc_controls table.
 type ControlRow struct {
-	ID        string  `json:"id"`
-	Framework string  `json:"framework"`
-	Data      []byte  `json:"data"`
+	ID        string `json:"id"`
+	Framework string `json:"framework"`
+	Data      []byte `json:"data"`
 }
 
 // MappingRow represents a row from the vulnerability_grc_mappings table.

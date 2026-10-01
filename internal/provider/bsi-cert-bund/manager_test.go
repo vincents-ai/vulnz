@@ -15,7 +15,7 @@ import (
 	. "github.com/onsi/gomega"
 
 	"github.com/vincents-ai/vulnz/internal/provider"
-	"github.com/vincents-ai/vulnz/internal/provider/bsi-cert-bund"
+	bsicertbund "github.com/vincents-ai/vulnz/internal/provider/bsi-cert-bund"
 )
 
 func buildMockDocument1() map[string]interface{} {

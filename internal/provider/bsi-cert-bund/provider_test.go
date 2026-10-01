@@ -10,7 +10,7 @@ import (
 	. "github.com/onsi/gomega"
 
 	"github.com/vincents-ai/vulnz/internal/provider"
-	"github.com/vincents-ai/vulnz/internal/provider/bsi-cert-bund"
+	bsicertbund "github.com/vincents-ai/vulnz/internal/provider/bsi-cert-bund"
 )
 
 var _ = Describe("BSI CERT-Bund Provider", func() {

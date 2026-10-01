@@ -125,8 +125,6 @@ func (m *Manager) ForEach(ctx context.Context, fn func(vulnerability.Vulnerabili
 				}
 			}
 
-			// Allow GC to reclaim parsed file content
-			content = nil
 		}
 	}
 

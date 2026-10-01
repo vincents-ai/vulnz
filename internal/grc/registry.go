@@ -77,7 +77,7 @@ func getRegistry() *grcRegistry {
 				"fedramp":        providerFactoryFunc(func(s storage.Backend, l *slog.Logger) Runner { return fedramp.New(s, l) }),
 				"hipaa":          providerFactoryFunc(func(s storage.Backend, l *slog.Logger) Runner { return hipaa.New(s, l) }),
 				"iam":            providerFactoryFunc(func(s storage.Backend, l *slog.Logger) Runner { return iam.New(s, l) }),
-				"k8s_terraform": providerFactoryFunc(func(s storage.Backend, l *slog.Logger) Runner { return k8s_terraform.New(s, l) }),
+				"k8s_terraform":  providerFactoryFunc(func(s storage.Backend, l *slog.Logger) Runner { return k8s_terraform.New(s, l) }),
 				"misp":           providerFactoryFunc(func(s storage.Backend, l *slog.Logger) Runner { return misp.New(s, l) }),
 				"mitre_attack":   providerFactoryFunc(func(s storage.Backend, l *slog.Logger) Runner { return mitre_attack.New(s, l) }),
 				"ropa":           providerFactoryFunc(func(s storage.Backend, l *slog.Logger) Runner { return ropa.New(s, l) }),

@@ -13,6 +13,7 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+	"unicode"
 
 	govalParser "github.com/quay/goval-parser/oval"
 
@@ -649,7 +650,11 @@ func mapSLESSeverity(def *govalParser.Definition) string {
 		}
 	}
 	if raw != "" {
-		return strings.Title(raw)
+		// strings.Title is deprecated and lowercases everything after the first
+		// letter, which corrupts names like "SUSE" or "OpenSSL" into "Suse" or
+		// "Openssl". Capitalising only the first rune preserves the rest.
+		r := []rune(raw)
+		return string(unicode.ToUpper(r[0])) + string(r[1:])
 	}
 	return "Unknown"
 }

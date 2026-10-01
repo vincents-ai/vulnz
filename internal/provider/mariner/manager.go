@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/xml"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -304,7 +305,7 @@ func extractSeveritiesFromXML(data []byte) map[string]string {
 	severities := make(map[string]string)
 	for {
 		tok, err := decoder.Token()
-		if err == io.EOF {
+		if errors.Is(err, io.EOF) {
 			break
 		}
 		if err != nil {

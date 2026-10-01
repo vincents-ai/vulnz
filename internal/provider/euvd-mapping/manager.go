@@ -102,9 +102,7 @@ func (m *Manager) Get(ctx context.Context) ([]Mapping, error) {
 // parseCSV parses the CVE-EUVD mapping CSV data.
 // Expected format: euvd_id,cve_id (header row followed by data)
 func parseCSV(data []byte) ([]Mapping, error) {
-	reader := csv.NewReader(io.NopCloser(io.LimitReader(nil, 0)))
-	// Reset reader with actual data
-	reader = csv.NewReader(newBytesReader(data))
+	reader := csv.NewReader(newBytesReader(data))
 
 	// Read header
 	header, err := reader.Read()
