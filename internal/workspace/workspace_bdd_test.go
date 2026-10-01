@@ -13,7 +13,7 @@ import (
 
 var _ = Describe("Workspace Manager", func() {
 	var (
-		manager      *workspace.Manager
+		manager      workspace.Workspace
 		tempDir      string
 		providerName string
 	)

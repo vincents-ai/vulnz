@@ -213,7 +213,7 @@ var _ = Describe("Concurrent Workspace Access", func() {
 
 	Describe("Concurrent state management", func() {
 		var (
-			manager *workspace.Manager
+			manager workspace.Workspace
 			tempDir string
 		)
 

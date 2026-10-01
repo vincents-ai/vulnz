@@ -1,3 +1,5 @@
+version: "2"
+
 run:
   timeout: 5m
   go: '1.23'
@@ -26,20 +28,16 @@ linters-settings:
 linters:
   enable:
     - errcheck      # Check for unchecked errors
-    - gosimple      # Simplify code
     - govet         # Go vet
     - ineffassign   # Detect ineffectual assignments
     - staticcheck   # Static analysis
     - unused        # Check for unused code
     - gocyclo       # Cyclomatic complexity
-    - gofmt         # Formatting
-    - goimports     # Import formatting
     - misspell      # Spelling
     - unconvert     # Unnecessary conversions
     - dupl          # Duplicate code
     - goconst       # Repeated strings that could be constants
     - gosec         # Security issues
-    - exportloopref # Check for loop variable capture
     - nilerr        # Check nilness errors
     - noctx         # Check HTTP requests without context
     - bodyclose     # Check HTTP response body closes
@@ -54,3 +52,14 @@ issues:
         - dupl
         - gosec
         - goconst
+
+# gofmt, goimports and goimports-local are FORMATTERS in golangci-lint v2, not
+# linters, and gosimple was merged into staticcheck. Listing them under
+# linters.enable makes the configuration fail to load, so a job using it dies
+# before analysing anything while reporting failure indistinguishable from code
+# findings. This repository's CI currently runs gofmt and go vet directly rather
+# than golangci-lint, which is why the rot went unnoticed.
+formatters:
+  enable:
+    - gofmt
+    - goimports
